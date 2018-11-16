@@ -1,20 +1,27 @@
 package edu.upc.eetac.dsa;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
+
 public class Bike {
-    String idBike;
+
+    String bikeId;
     String description;
     double kms;
     String idStation;
-    public Bike (String idBike, String description, double kms, String idStation){
-        this.idBike = idBike;
+
+    public Bike(){}
+
+    public Bike (String bikeId, String description, double kms, String idStation){
+        this.bikeId = bikeId;
         this.description = description;
         this.kms = kms;
         this.idStation = idStation;
     }
 
 
-    public void setIdBike(String idBike) {
-        this.idBike = idBike;
+    public void setbikeId(String bikeId) {
+        this.bikeId = bikeId;
     }
 
     public String getIdStation() {
@@ -42,7 +49,7 @@ public class Bike {
     }
 
     public String getBikeId() {
-        return idBike;
+        return bikeId;
     }
-    public Bike(){}
+
 }

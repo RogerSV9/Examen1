@@ -1,5 +1,8 @@
 package edu.upc.eetac.dsa;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.LinkedList;
 
 public class Station {
@@ -8,8 +11,11 @@ public class Station {
     int max;
     double lat;
     double lon;
-    protected LinkedList<Bike> bikes;
 
+    @JsonIgnore
+    @ApiModelProperty(hidden = true)
+    private LinkedList<Bike> bikes;
+    public Station(){}
     public Station(String idStation, String description, int max,double lat,double lon){
         this.idStation = idStation;
         this.description = description;
@@ -64,8 +70,10 @@ public class Station {
     public void addBike(Bike bike){
         bikes.add(bike);
     }
+    @JsonIgnore
+    @ApiModelProperty(hidden = true)
     public LinkedList<Bike> getList(){
         return bikes;
     }
-    public Station(){}
+
 }

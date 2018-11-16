@@ -1,12 +1,22 @@
 package edu.upc.eetac.dsa;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.LinkedList;
 
 public class User {
     String idUser;
     String name;
     String surname;
-    protected LinkedList<Bike> bikes;
+
+    @JsonIgnore
+    @ApiModelProperty(hidden = true)
+    private LinkedList<Bike> bikes;
+
+
+    public User(){}
+
     public User(String idUser, String name, String surname){
         this.idUser = idUser;
         this.name = name;
@@ -46,5 +56,5 @@ public class User {
     public void addBike(Bike bike){
         bikes.add(bike);
     }
-    public User(){}
+
 }

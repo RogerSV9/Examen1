@@ -64,21 +64,23 @@ public class RESTservice {
     @ApiOperation(value = "New Bike", notes = "asdasd")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Successful", response=Bike.class),
+            @ApiResponse(code = 404, message = "StationFullException"),
+            @ApiResponse(code = 402, message = "StationNotFoundException")
     })
 
-    @Path("/newbike/")
+    @Path("/addbike")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response newBike(Bike bike){
-        String idBike = bike.getBikeId();
+    public Response addBike(Bike bike){
+        String bikeId = bike.getBikeId();
         String description = bike.getDescription();
         double kms = bike.getKms();
         String idStation = bike.getIdStation();
         try {
-            getInstance().addBike(idBike,description,kms,idStation);
+            getInstance().addBike(bikeId,description,kms,idStation);
             return Response.status(201).build();
         } catch (StationFullException e) {
             e.printStackTrace();
-            return Response.status(404).build();
+            return Response.status(402).build();
         } catch (StationNotFoundException e) {
             e.printStackTrace();
             return Response.status(404).build();
