@@ -75,7 +75,7 @@ public class MyBikeImpl implements MyBike {
     }
 
     @Override
-    public Bike getBike(String stationId, String userId) {
+    public Bike getBike(String stationId, String userId) throws UserNotFoundException, StationNotFoundException {
         log.debug("Entering getBike");
         List<Bike> x = new LinkedList<>();
         //x.addAll(this.stationbikes);
@@ -95,7 +95,7 @@ public class MyBikeImpl implements MyBike {
     }
 
     @Override
-    public List<Bike> bikesByUser(String userId) {
+    public List<Bike> bikesByUser(String userId) throws UserNotFoundException{
         log.debug("Entering bikesByUser");
         List<Bike> x = new ArrayList<>();
         User user = users.get(userId);
@@ -115,7 +115,7 @@ public class MyBikeImpl implements MyBike {
     }
 
     @Override
-    public int numBikes(String idStation) {
+    public int numBikes(String idStation) throws StationNotFoundException{
         int num = 0;
         //x.addAll(this.stationbikes);
         Bike bike = null;
