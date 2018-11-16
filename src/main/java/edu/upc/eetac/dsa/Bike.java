@@ -12,9 +12,6 @@ public class Bike {
         this.idStation = idStation;
     }
 
-    public String getIdBike() {
-        return idBike;
-    }
 
     public void setIdBike(String idBike) {
         this.idBike = idBike;
@@ -43,4 +40,9 @@ public class Bike {
     public void setKms(double kms) {
         this.kms = kms;
     }
+
+    public String getBikeId() {
+        return idBike;
+    }
+    public Bike(){}
 }
