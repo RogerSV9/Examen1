@@ -109,7 +109,6 @@ public class MyBikeImpl implements MyBike {
         if(station != null) {
             x = station.getList();
 
-            //We have to tell to the sort method, which criteria we want to apply
             Collections.sort(x, new Comparator<Bike>() {
                 @Override
                 public int compare(Bike o1, Bike o2) {
